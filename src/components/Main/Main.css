@@ -1,0 +1,7 @@
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 85px 20px;
+    gap: 10px;
+}

@@ -1,0 +1,29 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.Banner {
+    display: flex;
+    flex-direction: column;
+    padding: 42px 20px;
+    gap: 10px;
+    background-color: #001724;
+}
+
+.Banner .description-wrapper {
+    font-size: 23px;
+    font-weight: 450;
+    color: #faa21b;
+    text-transform: uppercase;
+    word-spacing: 5px;
+}
+
+.Banner h1 {
+    font-size: 50px;
+    font-weight: 500;
+    color: #FFF;
+}
+
+.text-top {
+    color: #FFBB00;
+}
