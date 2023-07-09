@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
-import './DetalhesProdutoModal.css';
+import icon from '../../assets/icon.png';
+import {
+  ProductImage,
+  CaracteristicasList,
+  CardButton, 
+  ListItens, 
+  ImgItem
+} from './DetalhesProdutoModalStyle';
 
 
 function DetalhesProdutoModal(props) {
@@ -13,34 +20,33 @@ function DetalhesProdutoModal(props) {
 
   return (
     <>
-      <button type="button" className="btn-card" onClick={handleShow}>
+      <CardButton type="button" className="btn-card" onClick={handleShow}>
         MAIS SOBRE
-      </button>
+      </CardButton>
 
       <Modal show={showModal} onHide={handleClose} centered size="lg">
-          <Modal.Header closeButton={false}>
+        <Modal.Header closeButton={false}>
           <Modal.Title>Detalhe do Produto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="text-center">
-            <img src={foto} className='product-image' alt="Capa do curso" />
+            <ProductImage src={foto}></ProductImage>
           </div>
-          <div className="row"> 
-          <div className='mt-4 col-10'>
-            <h4 className="text-right">{nome}</h4>
-          </div>
-          <div className='mt-4 col-2'>
-            <h5 className="text-end">{preço}</h5>
-          </div>
+          <div className="row">
+            <div className='mt-4 col-10'>
+              <h4 className="text-right">{nome}</h4>
+            </div>
+            <div className='mt-4 col-2'>
+              <h5 className="text-end">{preço}</h5>
+            </div>
           </div>
           <h5 className="mt-4">Descrição:</h5>
           <p>{descricao}</p>
           <h5>Características:</h5>
-          <div className='lista'>
+          <CaracteristicasList>
             {caracteristicas.map((item, index) => (
-              <p key={index}>{item}</p>
-            ))}
-          </div>
+              <ListItens key={index}><ImgItem src={icon}/>{item}</ListItens>
+            ))}</CaracteristicasList>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
