@@ -1,8 +1,6 @@
-
-import './FaqPerguntas.css'
-
-import React, { useState } from 'react';
-
+import './FaqPerguntas.css';
+import React from 'react';
+import FaqItem from '../FaqItem/FaqItem';
 
 const FaqPerguntas = () => {
   const faqData = [
@@ -20,33 +18,28 @@ const FaqPerguntas = () => {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndexes, setActiveIndexes] = React.useState([]);
 
   const handleToggle = (index) => {
-    if (activeIndex === index) {
-      setActiveIndex(null);
+    if (activeIndexes.includes(index)) {
+      setActiveIndexes(activeIndexes.filter((item) => item !== index));
     } else {
-      setActiveIndex(index);
+      setActiveIndexes([...activeIndexes, index]);
     }
   };
 
   return (
     <div className="container mt-5 mb-5">
-    <div className="faq-container">
-      {faqData.map((faq, index) => (
-        <div
-          className={`faq-item ${activeIndex === index ? 'active' : ''}`}
-          key={index}
-        >
-          <div className="faq-question" onClick={() => handleToggle(index)}>
-            {faq.title}
-          </div>
-          {activeIndex === index && (
-            <div className="faq-answer">{faq.description}</div>
-          )}
-        </div>
-      ))}
-    </div>
+      <div className="faq-container">
+        {faqData.map((faq, index) => (
+          <FaqItem
+            key={index}
+            faq={faq}
+            isActive={activeIndexes.includes(index)}
+            handleToggle={() => handleToggle(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
