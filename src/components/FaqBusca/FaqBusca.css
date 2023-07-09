@@ -3,27 +3,7 @@
     align-items: center;
     padding-top: 2rem;
   }
-  
-  .search-input {
-    width: 100%;
-    padding: 11px;
-    margin-right: .8rem;
-    border: 1px solid #faa11b76;
-    
-  }
-  
-  .search-button {
-    background-color: #faa21b;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-  }
-  
-  .search-button:focus {
-    outline: none;
-  }
-  
+
   .search-icon {
     width: 24px;
     height: 24px;
